@@ -46,8 +46,8 @@ X_train_full[0]
 # Seeing images from rows and its true value
 plt.rcParams['figure.figsize'] = (15, 5)
 plt.subplot(1,5,1)
-plt.imshow(X_train_full[0])
-plt.title(Y_train_full[0])
+plt.imshow(X_train_full[10])
+plt.title(Y_train_full[10])
 
 
 plt.subplot(1,5,2)
@@ -139,9 +139,6 @@ tf.random.set_seed(42)
 # In[10]:
 
 
-batch_size = 128
-num_classes = 10
-epochs = 10
 # model making
 
 model = keras.models.Sequential()
@@ -160,7 +157,7 @@ model.add(keras.layers.Dense(128, activation='relu'))
 model.add(keras.layers.Dropout(0.3))
 model.add(keras.layers.Dense(128, activation='relu'))
 model.add(keras.layers.Dropout(0.5))
-model.add(keras.layers.Dense(num_classes, activation='softmax'))
+model.add(keras.layers.Dense(10, activation='softmax'))
 
 
 # In[11]:
@@ -223,7 +220,7 @@ early_stop_cb = keras.callbacks.EarlyStopping(patience=10,restore_best_weights=T
 
 
 # moodel fitting with training and validation data
-hist = model.fit(X_train, Y_train,batch_size=batch_size,epochs=100,verbose=1,validation_data=(X_test, Y_test),callbacks=[checkpoint_cb,early_stop_cb])
+hist = model.fit(X_train, Y_train,batch_size=128,epochs=,verbose=1,validation_data=(X_test, Y_test),callbacks=[checkpoint_cb,early_stop_cb])
 
 
 # In[19]:
