@@ -1,0 +1,9 @@
+Some modules are used in the project that are need to be install in system before running the project.
+
+tensorflow
+PIL
+numpy
+matplotlib
+pandas
+cv2
+pygame
